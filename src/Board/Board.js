@@ -4,11 +4,21 @@ import Square from "./Square";
 export default function Board() {
 
     const [squares, setSquares] = useState(Array(9).fill(null));
+    const [xNext, setXNext] = useState(true);
 
     const handleClick = (square) => {
+        if (squares[square]) {
+            return;
+        }
         const nextSquares = squares.slice(); // Creates a copy of the squares array!
-        nextSquares[square] = "X";
-        setSquares(nextSquares);
+        if (xNext) {
+            nextSquares[square] = 'X'
+            setXNext(false);
+        } else {
+            nextSquares[square] = 'O'
+            setXNext(true);
+        }
+        return setSquares(nextSquares);
     };
 
   return (
