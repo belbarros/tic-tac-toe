@@ -45,6 +45,11 @@ export default function Board() {
     return null;
   }
 
+  const newGame = () => {
+    setSquares(Array(9).fill(null));
+    setXNext(true);
+  };
+
   const winner = calculateWinner(squares);
   let status;
   if (winner) {
@@ -72,6 +77,11 @@ export default function Board() {
           <Square square={squares[7]} handleClick={() => handleClick(7)} />
           <Square square={squares[8]} handleClick={() => handleClick(8)} />
         </div>
+      </div>
+      <div>
+        {
+            winner && <button onClick={newGame}>New Game</button>
+        }
       </div>
     </div>
   );
