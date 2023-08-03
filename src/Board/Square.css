@@ -1,5 +1,8 @@
 .square {
-    background: red;
-    height: 30px;
-    width: 30px;
+    background: #e1e1e1;
+    height: 60px;
+    width: 60px;
+    line-height: 60px;
+    align-self: center;
+    vertical-align: top;
 }

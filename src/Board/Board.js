@@ -1,5 +1,6 @@
 import { useState } from "react";
 import Square from "./Square";
+import "./Board.css";
 
 export default function Board() {
   const [squares, setSquares] = useState(Array(9).fill(null));
@@ -60,8 +61,9 @@ export default function Board() {
 
   return (
     <div>
-      <p className="status">{status}</p>
+        <h2>Tic-Tac-Toe</h2>
       <div className="board">
+        <p className="status">{status}</p>
         <div className="board-row">
           <Square square={squares[0]} handleClick={() => handleClick(0)} />
           <Square square={squares[1]} handleClick={() => handleClick(1)} />
@@ -78,11 +80,7 @@ export default function Board() {
           <Square square={squares[8]} handleClick={() => handleClick(8)} />
         </div>
       </div>
-      <div>
-        {
-            winner && <button onClick={newGame}>New Game</button>
-        }
-      </div>
+      <div>{winner && <button onClick={newGame}>New Game</button>}</div>
     </div>
   );
 }
