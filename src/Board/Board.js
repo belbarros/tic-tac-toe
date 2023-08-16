@@ -7,10 +7,27 @@ export default function Board() {
   const [xNext, setXNext] = useState(true);
   const [gameOver, setGameOver] = useState(false);
   const [winner, setWinner] = useState("");
+  const [score, setScore] = useState({ xWin: 0, oWin: 0 });
 
   useEffect(() => {
     calculateWinner(squares);
   }, [squares]);
+
+  useEffect(() => {
+    console.log(winner);
+    console.log(score);
+    if (winner) {
+        if (winner === "X") {
+          let { xWin } = score;
+          xWin = +1;
+          setScore({ ...score, xWin });
+        } else if (winner === "O") {
+          let { oWin } = score;
+          oWin = +1;
+          setScore({ ...score, oWin });
+        }
+    }
+  }, [winner])
 
   const handleClick = (square) => {
     if (squares[square] || calculateWinner(squares)) {
@@ -76,6 +93,12 @@ export default function Board() {
         </p>
       </div>
       <div className="board-inner">
+        {
+          <div className="score">
+            <p>X: {score.xWin}</p>
+            <p>O: {score.oWin}</p>
+          </div>
+        }
         <div className="board-row">
           <Square square={squares[0]} handleClick={() => handleClick(0)} />
           <Square square={squares[1]} handleClick={() => handleClick(1)} />
