@@ -1,10 +1,16 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Square from "./Square";
 import "./Board.css";
 
 export default function Board() {
   const [squares, setSquares] = useState(Array(9).fill(null));
   const [xNext, setXNext] = useState(true);
+  const [gameOver, setGameOver] = useState(false);
+  const [winner, setWinner] = useState("");
+
+  useEffect(() => {
+    calculateWinner(squares);
+  }, [squares]);
 
   const handleClick = (square) => {
     if (squares[square] || calculateWinner(squares)) {
@@ -22,7 +28,7 @@ export default function Board() {
   };
 
   // Function provided by the React Tic-Tac-Toe tutorial!
-  function calculateWinner(squares) {
+  const calculateWinner = (squares) => {
     const lines = [
       [0, 1, 2],
       [3, 4, 5],
@@ -40,24 +46,20 @@ export default function Board() {
         squares[a] === squares[b] &&
         squares[a] === squares[c]
       ) {
+        setWinner(squares[a]);
+        setGameOver(true);
         return squares[a];
       }
     }
     return null;
-  }
+  };
 
   const newGame = () => {
     setSquares(Array(9).fill(null));
     setXNext(true);
+    setGameOver(false);
+    setWinner("");
   };
-
-  const winner = calculateWinner(squares);
-  let status;
-  if (winner) {
-    status = "And the winner is... " + winner + "!";
-  } else {
-    status = "Next player: " + (xNext ? "X" : "O");
-  }
 
   return (
     <div className="board">
@@ -66,8 +68,14 @@ export default function Board() {
         <h1>Tac</h1>
         <h1>Toe</h1>
       </div>
+      <div className="status">
+        <p>
+          {winner
+            ? `And the winner is... ${winner}!`
+            : `Next player: ${xNext ? "X" : "O"}`}
+        </p>
+      </div>
       <div className="board-inner">
-        <p className="status">{status}</p>
         <div className="board-row">
           <Square square={squares[0]} handleClick={() => handleClick(0)} />
           <Square square={squares[1]} handleClick={() => handleClick(1)} />
@@ -83,8 +91,10 @@ export default function Board() {
           <Square square={squares[7]} handleClick={() => handleClick(7)} />
           <Square square={squares[8]} handleClick={() => handleClick(8)} />
         </div>
+        <div className="new-game-button">
+          {gameOver && <button onClick={newGame}>New Game</button>}
+        </div>
       </div>
-      <div>{winner && <button onClick={newGame}>New Game</button>}</div>
     </div>
   );
 }
