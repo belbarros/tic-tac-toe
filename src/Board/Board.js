@@ -60,9 +60,13 @@ export default function Board() {
   }
 
   return (
-    <div>
-        <h2>Tic-Tac-Toe</h2>
-      <div className="board">
+    <div className="board">
+      <div className="title">
+        <h1>Tic</h1>
+        <h1>Tac</h1>
+        <h1>Toe</h1>
+      </div>
+      <div className="board-inner">
         <p className="status">{status}</p>
         <div className="board-row">
           <Square square={squares[0]} handleClick={() => handleClick(0)} />
