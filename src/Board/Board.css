@@ -39,16 +39,8 @@
   }
 }
 
-/* mid-size */
-@media (max-width: 899px) {
-  .board-inner {
-    width: 400px;
-    height: 450px;
-  }
-}
-
 /* mobile */
-@media (max-width: 599px) {
+@media (max-width: 899px) {
   .board-inner {
     padding: 10px;
     width: 300px;
@@ -62,7 +54,7 @@
 
   .button-area {
     font-size: 16px;
-    margin-top: 10px;
+    margin-top: 20px;
     margin-bottom: 0px;
   }
 

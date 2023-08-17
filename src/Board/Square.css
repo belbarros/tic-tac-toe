@@ -1,8 +1,22 @@
-.square {
+/* desktop */
+  .square {
     background: #e1e1e1;
     height: 60px;
     width: 60px;
     line-height: 60px;
     align-self: center;
     vertical-align: top;
+    border: 1px rgba(235, 77, 177, 0.4) solid;
+    font-weight: bolder;
+    font-size: 20px;
+    color: #e9609b;
+  }
+
+/* mobile */
+@media (min-width: 900px) {
+  .square {
+    height: 90px;
+    width: 90px;
+    font-size: 35px;
+  }
 }

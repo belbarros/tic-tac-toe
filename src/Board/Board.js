@@ -105,9 +105,6 @@ export default function Board() {
           </div>
         }
         <p className="status">
-          {/* {winner
-            ? `And the winner is... ${winner}!`
-            : `Next player: ${xNext ? "X" : "O"}`} */}
             {
                 nextMove()
             }

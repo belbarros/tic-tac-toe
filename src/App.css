@@ -37,13 +37,8 @@ body {
   }
 }
 
-/* mid-size */
-@media (max-width: 899px) {
-
-}
-
 /* mobile */
-@media (max-width: 599px) {
+@media (max-width: 899px) {
   .board {
     display: flex;
     flex-direction: column;
