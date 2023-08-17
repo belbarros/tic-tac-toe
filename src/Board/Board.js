@@ -13,6 +13,7 @@ export default function Board() {
     calculateWinner(squares);
   }, [squares]);
 
+
   useEffect(() => {
     console.log(winner);
     console.log(score);
@@ -66,6 +67,9 @@ export default function Board() {
         return squares[a];
       }
     }
+    if (!(squares.includes(null))) {
+        setGameOver(true);
+    }
     return null;
   };
 
@@ -75,6 +79,16 @@ export default function Board() {
     setGameOver(false);
     setWinner("");
   };
+
+  const nextMove = () => {
+    if (winner) {
+        return `And the winner is... ${winner}!`;
+    } else if (squares.includes(null)) {
+        return `Next player: ${xNext ? "X" : "O"}`
+    } else {
+        return `Its a tie!`;
+    }
+  }
 
   return (
     <div className="board">
@@ -91,9 +105,12 @@ export default function Board() {
           </div>
         }
         <p className="status">
-          {winner
+          {/* {winner
             ? `And the winner is... ${winner}!`
-            : `Next player: ${xNext ? "X" : "O"}`}
+            : `Next player: ${xNext ? "X" : "O"}`} */}
+            {
+                nextMove()
+            }
         </p>
         <div className="board-row">
           <Square square={squares[0]} handleClick={() => handleClick(0)} />
