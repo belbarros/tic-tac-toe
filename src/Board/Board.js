@@ -18,13 +18,11 @@ export default function Board() {
     console.log(score);
     if (winner) {
         if (winner === "X") {
-          let { xWin } = score;
-          xWin = +1;
-          setScore({ ...score, xWin });
+        let { xWin } = score;
+          setScore({ ...score, xWin: (xWin + 1) });
         } else if (winner === "O") {
           let { oWin } = score;
-          oWin = +1;
-          setScore({ ...score, oWin });
+          setScore({ ...score, oWin: (oWin + 1) });
         }
     }
   }, [winner])
@@ -85,20 +83,18 @@ export default function Board() {
         <h1>Tac</h1>
         <h1>Toe</h1>
       </div>
-      <div className="status">
-        <p>
-          {winner
-            ? `And the winner is... ${winner}!`
-            : `Next player: ${xNext ? "X" : "O"}`}
-        </p>
-      </div>
       <div className="board-inner">
-        {
+      {
           <div className="score">
             <p>X: {score.xWin}</p>
             <p>O: {score.oWin}</p>
           </div>
         }
+        <p className="status">
+          {winner
+            ? `And the winner is... ${winner}!`
+            : `Next player: ${xNext ? "X" : "O"}`}
+        </p>
         <div className="board-row">
           <Square square={squares[0]} handleClick={() => handleClick(0)} />
           <Square square={squares[1]} handleClick={() => handleClick(1)} />
@@ -114,8 +110,8 @@ export default function Board() {
           <Square square={squares[7]} handleClick={() => handleClick(7)} />
           <Square square={squares[8]} handleClick={() => handleClick(8)} />
         </div>
-        <div className="new-game-button">
-          {gameOver && <button onClick={newGame}>New Game</button>}
+        <div className="button-area">
+          {gameOver && <button className="new-game-button" onClick={newGame}>New Game</button>}
         </div>
       </div>
     </div>

@@ -1,10 +1,63 @@
+@import url("https://fonts.googleapis.com/css?family=Josefin+Sans");
+
 * {
   box-sizing: border-box;
 }
 
 body {
-  font-family: sans-serif;
+  font-family: "Josefin Sans", sans-serif;
   margin: 20px;
   padding: 0;
-  background: wheat;
+  background: pink;
+}
+
+.title h1 {
+  color: #E9609B;
+}
+
+.board {
+  display: flex;
+  flex-direction: row;
+}
+
+.title {
+  display: flex;
+  flex-direction: column;
+}
+
+/* desktop */
+@media (min-width: 900px) {
+
+
+  .title h1 {
+    text-align: left;
+    font-size: 100px;
+    line-height: 50px;
+    margin-left: 30%;
+  }
+}
+
+/* mid-size */
+@media (max-width: 899px) {
+
+}
+
+/* mobile */
+@media (max-width: 599px) {
+  .board {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+  }
+
+  .title {
+    display: flex;
+    flex-direction: row;
+    margin: 10px 0;
+  }
+
+  .title h1 {
+    font-size: 50px;
+  }
 }
