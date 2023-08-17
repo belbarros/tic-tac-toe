@@ -23,17 +23,15 @@ body {
 .title {
   display: flex;
   flex-direction: column;
+  margin: auto;
 }
 
 /* desktop */
 @media (min-width: 900px) {
 
-
   .title h1 {
-    text-align: left;
     font-size: 100px;
-    line-height: 50px;
-    margin-left: 30%;
+    line-height: 10px;
   }
 }
 
