@@ -13,4 +13,5 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
+Or you can see it live on: https://tic-tac-toe-khaki-mu.vercel.app/
 
