@@ -15,5 +15,7 @@ Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
 Or you can see it live on: https://tic-tac-toe-khaki-mu.vercel.app/
 
-<img src='/img/screenshot1.png' width="200" />
+## Screenshots
+<img src='/img/screenshot1.png' />
+<img src='/img/screenshot2.png' />
 
